@@ -20,7 +20,7 @@ let package = Package(
     targets: [
         .binaryTarget(
                    name: "AreebaIDV",
-                   url: "https://www.dropbox.com/scl/fi/20fqhz4xr3etqlhcs5hl0/AreebaIDV.xcframework.zip?rlkey=yersh9s1pk046vsczpejo66th&st=itlkymiv&dl=1.xcframework.zip",
+                   url: "https://www.dropbox.com/scl/fi/20fqhz4xr3etqlhcs5hl0/AreebaIDV.xcframework.zip?rlkey=yersh9s1pk046vsczpejo66th&st=itlkymiv&dl=1",
                    checksum: checksumForAreebaIDV
                ),
         .target(
