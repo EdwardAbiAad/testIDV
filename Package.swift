@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AreebaIDVSDK",
-            targets: ["AreebaIDVSDK","AreebaIDV"]
+            targets: ["IDWise","AreebaIDV"]
         )
     ],
     dependencies: [
@@ -24,7 +24,7 @@ let package = Package(
                    checksum: checksumForAreebaIDV
                ),
         .target(
-            name: "AreebaIDVSDK",
+            name: "IDWise",
             dependencies: [
                 .product(name: "IDWise", package: "idwise-ios-sdk")
             ],
