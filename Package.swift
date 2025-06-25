@@ -19,7 +19,7 @@ let package = Package(
     products: [
         .library(
             name: "AreebaIDVSDK",
-            targets: ["AreebaIDV","IDWise","ShieldFraud","FingerprintPro"]
+            targets: ["AreebaIDVSDKTarget"]
         )
     ],
     targets: [
@@ -39,9 +39,20 @@ let package = Package(
                    checksum: checksumForIDWise
                ),
         .binaryTarget(
-                   name: "AreebaIDV",
+                   name: "AreebaIDVSDK",
                    url: "https://www.dropbox.com/scl/fi/20fqhz4xr3etqlhcs5hl0/AreebaIDV.xcframework.zip?rlkey=yersh9s1pk046vsczpejo66th&st=itlkymiv&dl=1",
                    checksum: checksumForAreebaIDV
+               ),
+        .target(
+                   name: "AreebaIDVSDKTarget",
+                   dependencies: [
+                    "AreebaIDVSDK",
+                       "IDWise", // Binary Target
+                       "ShieldFraud", // Binary Target
+                       "FingerprintPro",    // Binary Target
+                   ],
+                   path: "Sources/AreebaIDVSDKTarget"
                )
     ]
+        
 )
