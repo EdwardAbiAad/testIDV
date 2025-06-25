@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AreebaIDVSDK",
-            targets: ["AreebaIDVSDK","AreebaIDV"]
+            targets: ["AreebaIDV"]
         )
     ],
     dependencies: [
