@@ -19,29 +19,26 @@ let package = Package(
     products: [
         .library(
             name: "AreebaIDVSDK",
-            targets: ["AreebaIDV"]
+            targets: [ "AreebaIDVTarget"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/idwise/idwise-ios-sdk.git",exact:"5.5.2")
+    ],
     targets: [
-        .binaryTarget(
-                   name: "ShieldFraud",
-                   url: "https://s3.amazonaws.com/cashshield-sdk/shield-ptr-ios-swift-\(shieldVersion).zip",
-                   checksum: checksumForShield
-               ),
-               .binaryTarget(
-                   name: "FingerprintPro",
-                   url: "https://fpjs-public.s3.amazonaws.com/ios/\(fpVersion)/FingerprintPro-\(fpVersion)-\(checksumForFP).xcframework.zip",
-                   checksum: checksumForFP
-               ),
-               .binaryTarget(
-                   name: "IDWise",
-                   url: "https://mobile-sdk.idwise.ai/ios/\(idwiseSDKVersion)/IDWiseSDK.xcframework.zip",
-                   checksum: checksumForIDWise
-               ),
         .binaryTarget(
                    name: "AreebaIDV",
                    url: "https://www.dropbox.com/scl/fi/20fqhz4xr3etqlhcs5hl0/AreebaIDV.xcframework.zip?rlkey=yersh9s1pk046vsczpejo66th&st=itlkymiv&dl=1",
                    checksum: checksumForAreebaIDV
+               ),
+        .target(
+                   name: "AreebaIDVTarget",
+                   dependencies: [
+                       "AreebaIDV", // Binary Target
+                       .product(name: "IDWise", package: "idwise-ios-sdk")
+                       
+                   ],
+                   path: "Sources/AreebaIDVTarget"
                )
     ]
         
